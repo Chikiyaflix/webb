@@ -84,7 +84,7 @@ export default class PlayerMenu extends Component {
               </a>
               <Divider />
             </div>
-          ) : (
+          ) : null}
             <div>
               <a
                 href={`potplayer://${server}/api/v1/redirectdownload/${encodeURIComponent(
@@ -95,7 +95,18 @@ export default class PlayerMenu extends Component {
                 <MenuItem onClick={this.handleClose}>PotPlayer</MenuItem>
               </a>
             </div>
-          )}
+			<div>
+	          <a
+            href={`intent:${server}/api/v1/redirectdownload/${encodeURI(
+              metadata.name
+            )}?a=${auth}&id=${id}#Intent;type=video/any;package=is.xyz.mpv;S.title=${
+              metadata.name
+            };scheme=https;end;`}
+            className="no_decoration_link"
+          >
+            <MenuItem onClick={this.handleClose}>MPV-Android</MenuItem>
+          </a>
+		  </div>
           <Divider />
           <MenuItem
             onClick={() => {
