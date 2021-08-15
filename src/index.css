@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  background-color: #111;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  position: relative;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  scrollbar-color: #202324 #454a4d;
+}
+
+::-webkit-scrollbar {
+  background-color: #202324;
+  color: #aba499;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #181a1b;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #454a4d;
+}
+
+.no_decoration_link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.Loading {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 420px) {
+  .NewsMenu {
+    margin: 0;
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .ThemeMenu {
+    margin: 0;
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+#footer__container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.footer__text {
+  margin-left: 10px;
+}
+
+.footer__github {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+@media screen and (max-width: 320px) {
+  #footer__container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .footer__github {
+    display: none;
+  }
+  .footer__text {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  .gallery__select {
+    display: none;
+  }
+}
