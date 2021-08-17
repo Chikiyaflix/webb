@@ -22,7 +22,7 @@ class Footer extends Component {
     return (
       <div style={{ paddingTop: "75px" }}>
         <footer className={classes.footer__container} id="footer__container">
-          <a href="https://www.telegram.dog/Flixverse" target="_blank">
+          <a href="https://www.telegram.dog/chikiyaflix" target="_blank">
             <img
               src="/images/catpc.gif"
               className="footer__github"
@@ -35,7 +35,7 @@ class Footer extends Component {
             href="https://github.com/libDrive/libDrive/"
             target="_blank"
           >
-            {`Flixverse - Elias Benbourenane - v${version}`}
+            {`Chikiyaflix - Elias Benbourenane - v${version}`}
           </a>
         </footer>
       </div>
