@@ -54,11 +54,11 @@ export class TVBView extends Component {
     let { metadata, ui_config } = this.state;
 
     seo({
-      title: `${ui_config.title || "Flixverse"} - ${
+      title: `${ui_config.title || "Chikiyaflix"} - ${
         metadata.title || metadata.name
       }`,
       description: `Watch ${metadata.title || metadata.name} on ${
-        ui_config.title || "Flixverse"
+        ui_config.title || "Chikiyaflix"
       }! — ${metadata.overview}`,
       image: metadata.backdropPath,
       type: "video.movie",
@@ -299,9 +299,9 @@ export class TVSView extends Component {
     let { metadata, q, ui_config } = this.state;
 
     seo({
-      title: `${ui_config.title || "Flixverse"} - ${metadata.children[q].name}`,
+      title: `${ui_config.title || "Chikiyaflix"} - ${metadata.children[q].name}`,
       description: `Watch ${metadata.children[q].name} on ${
-        ui_config.title || "Flixverse"
+        ui_config.title || "Chikiyaflix"
       }!`,
       type: "video.episode",
     });
@@ -398,8 +398,8 @@ export class TVSView extends Component {
               theme: theme.palette.primary.main,
               contextmenu: [
                 {
-                  text: "Flixverse",
-                  link: "https://telegram.dog/Flixverse",
+                  text: "Chikiyaflix",
+                  link: "https://telegram.dog/Chikiyaflix",
                 },
               ],
               volume: 1,
