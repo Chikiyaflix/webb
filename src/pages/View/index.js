@@ -128,7 +128,7 @@ export default class View extends Component {
         } else {
           Swal.fire({
             title: "Error!",
-            text: `Flixverse could not communicate with the server! Is '${server}' the correct address?`,
+            text: `Chikiyaflix could not communicate with the server! Is '${server}' the correct address?`,
             icon: "error",
             confirmButtonText: "Logout",
             confirmButtonColor: theme.palette.success.main,
@@ -210,7 +210,7 @@ export default class View extends Component {
           } else {
             Swal.fire({
               title: "Error!",
-              text: `Flixverse could not communicate with the server! Is '${server}' the correct address?`,
+              text: `Chikiyaflix could not communicate with the server! Is '${server}' the correct address?`,
               icon: "error",
               confirmButtonText: "Logout",
               confirmButtonColor: theme.palette.success.main,
@@ -253,10 +253,10 @@ export default class View extends Component {
     if (isLoaded) {
       seo({
         title: metadata.title
-          ? `${ui_config.title || "Flixverse"} - ${metadata.title}`
-          : ui_config.title || "Flixverse",
+          ? `${ui_config.title || "Chikiyaflix"} - ${metadata.title}`
+          : ui_config.title || "Chikiyaflix",
         description: `Watch ${metadata.title || metadata.name} on ${
-          ui_config.title || "Flixverse"
+          ui_config.title || "Chikiyaflix"
         }!`,
         image: metadata.backdropPath,
       });
