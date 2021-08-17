@@ -1,0 +1,73 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "The release version"
+        required: true
+        default: "v1.x.x"
+      server:
+        description: "The server repositry clone URL and extra commands"
+        required: true
+        default: "libDrive/server"
+      server-branch:
+        description: "The branch of the server repositry to clone"
+        required: true
+        default: "main"
+      web:
+        description: "The web repositry clone URL and extra commands"
+        required: true
+        default: "libDrive/web"
+      web-branch:
+        description: "The branch of the web repositry to clone"
+        required: true
+        default: "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Build Release
+        id: build_release
+        run: |
+          npm install --global yarn
+          git clone https://.:${{ secrets.PAT }}@github.com/${{ github.event.inputs.server }} --branch ${{ github.event.inputs.server-branch }} --depth 1 server
+          git clone https://.:${{ secrets.PAT }}@github.com/${{ github.event.inputs.web }} --branch ${{ github.event.inputs.web-branch }} --depth 1 web
+          mkdir "./libDrive.Server.${{ github.event.inputs.version }}"
+          mkdir "./libDrive.Server.${{ github.event.inputs.version }}/build"
+          mkdir "./libDrive.Server.${{ github.event.inputs.version }}/src"
+          mkdir "./libDrive.Server.${{ github.event.inputs.version }}/templates"
+          cd ./web
+          web_commit_id=$(git rev-parse --verify HEAD)
+          yarn install
+          yarn run build
+          mv ./build/* "../libDrive.Server.${{ github.event.inputs.version }}/build"
+          cd ../server
+          server_commit_id=$(git rev-parse --verify HEAD)
+          mv main.py requirements.txt "../libDrive.Server.${{ github.event.inputs.version }}"
+          mv ./src/* "../libDrive.Server.${{ github.event.inputs.version }}/src"
+          mv ./templates/* "../libDrive.Server.${{ github.event.inputs.version }}/templates"
+          cd ..
+          cp README.md LICENSE "./libDrive.Server.${{ github.event.inputs.version }}"
+          cd "libDrive.Server.${{ github.event.inputs.version }}"
+          tar cvf "../libDrive.Server.${{ github.event.inputs.version }}.tar" *
+          cd ..
+          body="# ${{ github.event.inputs.version }}\n\n## Changelog\n\n## Working trees\n\n- https://github.com/libDrive/server/commit/$server_commit_id\n- https://github.com/libDrive/web/commit/$web_commit_id\n\n## Screenshots"
+          echo -e $body > body.txt
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: "libDrive ${{ github.event.inputs.version }}"
+          body_path: "body.txt"
+          draft: true
+          prerelease: false
+          files: libDrive.Server.${{ github.event.inputs.version }}.tar
