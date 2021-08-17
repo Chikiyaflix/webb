@@ -32,7 +32,7 @@ class Footer extends Component {
           </a>
           <a
             className="no_decoration_link footer__text"
-            href="https://github.com/libDrive/libDrive/"
+            href="https://www.telegram.dog/chikiyaflix"
             target="_blank"
           >
             {`Chikiyaflix - Elias Benbourenane - v${version}`}
