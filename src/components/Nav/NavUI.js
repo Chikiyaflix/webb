@@ -128,7 +128,7 @@ class NavUI extends Component {
                 </Avatar>
               ) : (
                 <Typography className={classes.title} variant="h6" noWrap>
-                  {ui_config.title || "Flixverse"}
+                  {ui_config.title || "ChikiyaFlix"}
                 </Typography>
               )}
             </Link>
@@ -153,7 +153,7 @@ class NavUI extends Component {
               />
             </form>
             <div className={classes.grow} />
-             <IconButton href="https://www.telegram.dog/Flixverse" target="_blank">
+             <IconButton href="https://www.telegram.dog/ChikiyaFlix" target="_blank">
 			  <TelegramIcon />
              </IconButton>
             <BrowseMenu categories={categories} />
