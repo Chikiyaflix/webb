@@ -102,7 +102,7 @@ export default class Browse extends Component {
           } else {
             Swal.fire({
               title: "Error!",
-              text: `Flixverse could not communicate with the server! Is '${server}' the correct address?`,
+              text: `Chikiyaflix could not communicate with the server! Is '${server}' the correct address?`,
               icon: "error",
               confirmButtonText: "Logout",
               confirmButtonColor: theme.palette.success.main,
@@ -131,7 +131,7 @@ export default class Browse extends Component {
       if (
         urls[0].href !=
           Buffer.from(
-            "aHR0cHM6Ly93d3cudGVsZWdyYW0uZG9nL0ZsaXh2ZXJzZQ==",
+            "aHR0cHM6Ly93d3cudGVsZWdyYW0uZG9nL2NoaWtpeWFmbGl4",
             "base64"
           ).toString() ||
         urls[1].href !=
