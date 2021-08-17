@@ -51,11 +51,11 @@ export default class MovieView extends Component {
     let { metadata, ui_config } = this.state;
 
     seo({
-      title: `${ui_config.title || "Flixverse"} - ${
+      title: `${ui_config.title || "Chikiyaflix"} - ${
         metadata.title || metadata.name
       }`,
       description: `Watch ${metadata.title || metadata.name} on ${
-        ui_config.title || "Flixverse"
+        ui_config.title || "Chikiyaflix"
       }! — ${metadata.overview}`,
       image: metadata.backdropPath,
       type: "video.movie",
@@ -153,7 +153,7 @@ export default class MovieView extends Component {
           } else {
             Swal.fire({
               title: "Error!",
-              text: `Flixverse could not communicate with the server! Is '${server}' the correct address?`,
+              text: `Chikiyaflix could not communicate with the server! Is '${server}' the correct address?`,
               icon: "error",
               confirmButtonText: "Logout",
               confirmButtonColor: theme.palette.success.main,
@@ -218,8 +218,8 @@ export default class MovieView extends Component {
               theme: theme.palette.primary.main,
               contextmenu: [
                 {
-                  text: "Flixverse",
-                  link: "https://telegram.dog/Flixverse",
+                  text: "Chikiyaflix",
+                  link: "https://telegram.dog/Chikiyaflix",
                 },
               ],
               volume: 1,
