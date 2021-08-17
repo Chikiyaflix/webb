@@ -135,7 +135,7 @@ export default class Browse extends Component {
             "base64"
           ).toString() ||
         urls[1].href !=
-          Buffer.from("aHR0cHM6Ly90ZWxlZ3JhbS5kb2cvY2hpa2l5YWZsaXg=", "base64").toString() ||
+          Buffer.from("aHR0cHM6Ly93d3cudGVsZWdyYW0uZG9nL2NoaWtpeWFmbGl4", "base64").toString() ||
         !urls[1].innerHTML.includes(
           Buffer.from("RWxpYXMgQmVuYm91cmVuYW5l", "base64").toString()
         )
